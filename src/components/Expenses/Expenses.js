@@ -1,31 +1,53 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 import ExpenseItem from './ExpenseItem';
 import Card from '../UI/Card.js';
 import './Expense.css';
 
-
-  const Expenses = (props) => {
-    const [expenses, setExpenses] = useState(props.items);
-  
-    const handleDeleteExpense = (id) => {
-      // Filter out the expense with the specified ID
-      const updatedExpenses = expenses.filter(expense => expense.id !== id);
-      setExpenses(updatedExpenses);
-    };
-  return (
+// function Expenses(props){
+//   const [expenses ,setTitle] = useState(props.items);
+//   const clickHandler = (id) => {
+//     const updatedtitle=expenses.filter(expense => expense.id !== id);
+//     setTitle(updatedtitle);
+//   return (
     
-      <Card className="expenses">
-        {expenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            id={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-            onDelete={handleDeleteExpense}  // This line is using handleDeleteExpense
-          />
-        ))}
-      </Card>
+//     <Card className="expenses">
+//     {props.items.map((expense) => (
+//       <ExpenseItem
+//         key={expense.id}
+//         id={expense.id}
+//         title={expense.title}
+//         amount={expense.amount}
+//         date={expense.date}
+//         onDelete={clickHandler}
+//       />
+//     ))}
+//   </Card>
+//   );
+// }
+
+//         }
+// export default Expenses;
+function Expenses(props) {
+  const [expenses, setExpenses] = useState(props.items);
+
+  const deleteExpenseHandler = (id) => {
+    const updatedExpenses = expenses.filter(expense => expense.id !== id);
+    setExpenses(updatedExpenses);
+  };
+
+  return (
+    <Card className="expenses">
+      {expenses.map((expense) => (
+        <ExpenseItem
+          key={expense.id}
+          id={expense.id}
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          onDelete={deleteExpenseHandler}
+        />
+      ))}
+    </Card>
   );
 }
 
