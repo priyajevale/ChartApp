@@ -1,16 +1,20 @@
-import React from 'react';
+
+import React ,{ useState } from 'react';
 import './ExpenseForm.css';
 const ExpenseForm =() => {
+  const[enteredTitle,setNewTitle] = useState('');
+  const[enteredAmount ,setNewAmount] = useState('');
+  const[enteredDate,setNewDate] = useState('');
     const handleTitleChange = (event) => {
-        console.log('Title:', event.target.value);
+      setNewTitle( event.target.value);
       };
     
       const handleAmountChange = (event) => {
-        console.log('Amount:', event.target.value);
+        setNewAmount(event.target.value);
       };
     
       const handleDateChange = (event) => {
-        console.log('Date:', event.target.value);
+        setNewDate( event.target.value);
       };
     
     return ( 
@@ -18,15 +22,15 @@ const ExpenseForm =() => {
     <div className="new-expense__controls">
     <div className="new-expense__control label">
 <label>title</label>
-<input type ="text"  onChange={handleTitleChange}/>
+<input type ="text"  value={enteredTitle} onChange={handleTitleChange}/>
 </div>
 <div className="new-expense__control input">
 <label>amount</label>
-<input type ="number" min="0.01" step="0.01"  onChange={handleAmountChange}/>
+<input type ="number" min="0.01" step="0.01" value={enteredAmount}  onChange={handleAmountChange}/>
 </div>
 <div className="new-expense__control input">
 <label>date</label>
-<input type ="date"  onChange={handleDateChange}/>
+<input type ="date" value={enteredDate}  onChange={handleDateChange}/>
 
 </div>
 
