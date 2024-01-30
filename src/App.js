@@ -21,8 +21,10 @@ const DummyExpense = [
 const App =() => {
   const [expenses , setExpenes] =useState(DummyExpense);
   const addExpenseHandler = (expense) => {
-   const updatedExpenses = [expense , ...expenses];
-   setExpenes(updatedExpenses);
+   
+   setExpenes((pervExpenses) =>{
+    return [expense,...pervExpenses];
+   } );
 
   };
   // return React.createElement('div', {},React.createElement('h2',{},"lets get started"),React.createElement(Expenses,{items:expenses}) 
