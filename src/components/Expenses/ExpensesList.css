@@ -7,8 +7,17 @@
     justify-content: center;
   }
   
-  .expenses-list__fallback,
+  /* .expenses-list__fallback,
   .expenses-list__message {
+    color: white;
+    text-align: center;
+  } */
+  .expenses-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .expenses-list__fallback {
     color: white;
     text-align: center;
   }
